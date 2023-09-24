@@ -58,3 +58,9 @@
 #    define DRIVER_3_LED_TOTAL 15
 #    define RGB_MATRIX_LED_COUNT (DRIVER_1_LED_TOTAL + DRIVER_2_LED_TOTAL + DRIVER_3_LED_TOTAL)
 #endif
+
+/* Enable the space-cadet options */
+#define LSPO_KEYS KC_LSFT, KC_LSFT, KC_9
+#define RSPC_KEYS KC_RSFT, KC_LSFT, KC_0
+#define LCPO_KEYS KC_LCTL, KC_LSFT, KC_LBRC
+#define RCPC_KEYS KC_RCTL, KC_LSFT, KC_RBRC
