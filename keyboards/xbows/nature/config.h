@@ -60,7 +60,7 @@
 #endif
 
 /* Enable the space-cadet options */
-#define LSPO_KEYS KC_LSFT, KC_LSFT, KC_9
-#define RSPC_KEYS KC_RSFT, KC_LSFT, KC_0
-#define LCPO_KEYS KC_LCTL, KC_LSFT, KC_LBRC
-#define RCPC_KEYS KC_RCTL, KC_LSFT, KC_RBRC
+#define LCPO_KEYS KC_LCTL, KC_LSFT, KC_9
+#define RCPC_KEYS KC_RCTL, KC_LSFT, KC_0
+#define LSPO_KEYS KC_LSFT, KC_LSFT, KC_LBRC
+#define RSPC_KEYS KC_RSFT, KC_LSFT, KC_RBRC
