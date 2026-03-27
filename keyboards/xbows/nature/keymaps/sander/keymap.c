@@ -15,6 +15,9 @@
  */
 #include QMK_KEYBOARD_H
 
+#define SV_LCBR LSFT(KC_LBRC) // '{'
+#define SV_LRBR LSFT(KC_9) // '('
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap VANILLA: (Base Layer) Default Layer
    *
@@ -37,20 +40,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,    KC_1,    KC_2,    KC_3,     KC_4,     KC_5,                KC_6,     KC_7,     KC_8,      KC_9,     KC_0,      KC_MINS,   KC_EQL,               KC_BSPC,
     KC_TAB,    KC_Q,    KC_W,    KC_E,     KC_R,     KC_T,                KC_Y,     KC_U,     KC_I,      KC_O,     KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_PGUP,
     MO(1),     KC_A,    KC_S,    KC_D,     KC_F,     KC_G,      KC_BSPC,  KC_H,     KC_J,     KC_K,      KC_L,     KC_SCLN,   KC_QUOT,              KC_ENT,    KC_PGDN,
-    KC_LSFT,   KC_Z,    KC_X,    KC_C,     KC_V,     KC_B,      KC_ENT,   KC_N,     KC_M,     KC_COMM,   KC_DOT,   KC_SLSH,   KC_RSFT,   KC_UP,
-    KC_LCTL,   KC_LGUI, KC_LALT,           KC_SPC,   KC_LCTL,   KC_LSFT,  KC_SPC,             KC_RALT,   MO(1),    KC_RCTL,   KC_LEFT,   KC_DOWN,   KC_RGHT),
+    KC_LSFT,   KC_Z,    KC_X,    KC_C,     KC_V,     KC_B,      KC_MINS,  KC_N,     KC_M,     KC_COMM,   KC_DOT,   KC_SLSH,   KC_RSFT,   KC_UP,
+    KC_LCTL,   KC_LGUI, KC_LALT,           KC_SPC,   SV_LCBR,   SV_LRBR,  KC_SPC,             KC_RALT,   MO(1),    KC_RCTL,   KC_LEFT,   KC_DOWN,   KC_RGHT),
   [1] = LAYOUT( // Caps -- cursor movement
-    QK_BOOT,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_CALC,   KC_MYCM,  KC_MSEL,   KC_MAIL,   KC_INS,    KC_TRNS,
-    TG(2),     KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,             KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,              KC_NUM,
-    RGB_TOG,   RGB_MOD, RGB_VAI, RGB_HUI,  KC_TRNS,  KC_TRNS,             KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_MPRV,
-    KC_TRNS,   RGB_SPD, RGB_VAD, RGB_SPI,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT,  KC_TRNS,   KC_TRNS,              KC_TRNS,   KC_MNXT,
-    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_MUTE,   KC_VOLU,
-    KC_TRNS,   KC_TRNS, KC_TRNS,           KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,            KC_TRNS,   KC_TRNS,  KC_MPLY,   KC_HOME,   KC_VOLD,   KC_END),
+    QK_BOOT,   _______, _______, _______,  _______,  _______,   _______,  _______,  _______,  KC_CALC,   KC_MYCM,  KC_MSEL,   KC_MAIL,   KC_INS,    _______,
+    TG(2),     _______, _______, _______,  _______,  _______,             _______,  _______,  _______,   _______,  _______,   _______,   _______,              KC_NUM,
+    UG_TOGG,   UG_NEXT, UG_VALU, UG_HUEU,  _______,  _______,             _______,  _______,  _______,   _______,  _______,   _______,   _______,   _______,   KC_MPRV,
+    _______,   UG_SPDD, UG_VALD, UG_SPDU,  _______,  _______,   _______,  KC_LEFT,  KC_DOWN,  KC_UP,     KC_RGHT,  _______,   _______,              _______,   KC_MNXT,
+    _______,   _______, _______, _______,  _______,  _______,   _______,  _______,  _______,  _______,   _______,  _______,   KC_MUTE,   KC_VOLU,
+    _______,   _______, _______,           _______,  _______,   _______,  _______,            _______,   _______,  KC_MPLY,   KC_HOME,   KC_VOLD,   KC_END),
   [2] = LAYOUT( // Caps + ` -- numlock
-    QK_BOOT,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,            KC_7,     KC_8,      KC_9,     KC_TRNS,   KC_TRNS,   KC_TRNS,              KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,            KC_4,     KC_5,      KC_6,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_1,     KC_2,      KC_3,     KC_TRNS,   KC_TRNS,              KC_TRNS,   KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_0,     KC_COMM,   KC_DOT,   KC_TRNS,   KC_TRNS,   KC_TRNS,
-    KC_TRNS,   KC_TRNS, KC_TRNS,           KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS,            KC_TRNS,   KC_TRNS,  KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS)
+    QK_BOOT,   _______, _______, _______,  _______,  _______,   _______,  _______,  _______,  _______,   _______,  _______,   _______,   _______,   _______,
+    _______,   _______, _______, _______,  _______,  _______,   _______,            KC_7,     KC_8,      KC_9,     _______,   _______,   _______,              _______,
+    _______,   _______, _______, _______,  _______,  _______,   _______,            KC_4,     KC_5,      KC_6,     _______,   _______,   _______,   _______,   _______,
+    _______,   _______, _______, _______,  _______,  _______,   _______,  _______,  KC_1,     KC_2,      KC_3,     _______,   _______,              _______,   _______,
+    _______,   _______, _______, _______,  _______,  _______,   _______,  _______,  KC_0,     KC_COMM,   KC_DOT,   _______,   _______,   _______,
+    _______,   _______, _______,           _______,  _______,   _______,  _______,            _______,   _______,  _______,   _______,   _______,   _______)
 };
